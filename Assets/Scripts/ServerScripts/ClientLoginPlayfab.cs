@@ -59,7 +59,7 @@ namespace SpaceBattle.Client.playfab
             {
                 if (PlayfabSettings.singleton.isRemote)
                 {
-                    if (!email || !password || !displayName)
+                    if (string.IsNullOrEmpty(email.text) || string.IsNullOrEmpty(password.text) || (displayName && string.IsNullOrEmpty(displayName.text)))
                     {
                         errorConsol.text += "\nMissing Parameter";
                         Debug.Log("Missing Parameter");

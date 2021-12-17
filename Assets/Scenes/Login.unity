@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a494ebe056755646ab388f67a6ba617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRemote: 0
+  isRemote: 1
   isServerInstance: 0
   buildId: 8c468456-03fa-4f24-8b18-9ce7ae5b944f
 --- !u!1 &1037259296
@@ -1590,15 +1590,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966256886}
-        m_MethodName: GotoRegisterScreen
-        m_Mode: 1
+      - m_Target: {fileID: 1407522131}
+        m_MethodName: GotoScreen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: RegisterUser
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1270524794
@@ -1761,6 +1761,7 @@ GameObject:
   - component: {fileID: 1407522129}
   - component: {fileID: 1407522128}
   - component: {fileID: 1407522127}
+  - component: {fileID: 1407522131}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1850,6 +1851,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1407522131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407522126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8831df81b72eb4685d8a9a605e6934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtSession: {fileID: 0}
+  txtfullGuid: {fileID: 0}
 --- !u!1 &1616233430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,7 +2280,6 @@ GameObject:
   - component: {fileID: 1966256885}
   - component: {fileID: 1966256884}
   - component: {fileID: 1966256883}
-  - component: {fileID: 1966256886}
   m_Layer: 5
   m_Name: btnQuit
   m_TagString: Untagged
@@ -2335,7 +2349,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966256886}
+      - m_Target: {fileID: 1407522131}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -2383,20 +2397,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966256881}
   m_CullTransparentMesh: 0
---- !u!114 &1966256886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966256881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8831df81b72eb4685d8a9a605e6934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtSession: {fileID: 0}
-  txtfullGuid: {fileID: 0}
 --- !u!1 &2058610064
 GameObject:
   m_ObjectHideFlags: 0
