@@ -364,7 +364,7 @@ MonoBehaviour:
   PickUpSpark: {fileID: 3376224959438181904, guid: 73de8a0a2a2197544bd7c71f5a37130b,
     type: 3}
   pickUpSound: {fileID: 8300000, guid: 2b7967234ee135b4aab3438a6d6a7522, type: 3}
-  soundRadius: 8
+  soundRadius: 20
   amountHealth: 100
 --- !u!1 &7611042020450980730
 GameObject:
