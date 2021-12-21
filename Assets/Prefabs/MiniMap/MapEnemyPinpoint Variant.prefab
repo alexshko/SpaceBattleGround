@@ -45,12 +45,12 @@ PrefabInstance:
     - target: {fileID: 4394464278413405233, guid: bfb639725a32e9b4eaece40c2ce2c430,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4394464278413405233, guid: bfb639725a32e9b4eaece40c2ce2c430,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4394464278413405233, guid: bfb639725a32e9b4eaece40c2ce2c430,
         type: 3}
@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 4394464278413405238, guid: bfb639725a32e9b4eaece40c2ce2c430,
         type: 3}
       propertyPath: m_Name
-      value: MapEnemyPinpoint
+      value: MapEnemyPinpoint Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4394464278517802149, guid: bfb639725a32e9b4eaece40c2ce2c430,
         type: 3}

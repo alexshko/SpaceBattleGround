@@ -55,14 +55,23 @@ namespace SpaceBattle.Client
         private void SetPositionOfRoomPlayer()
         {
             Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
-            transform.SetParent(mainCanvas.transform);
-            //todo: change 150 to the width of the prefab:
+            foreach (RectTransform pnl in mainCanvas.GetComponentsInChildren<RectTransform>())
+            {
+                if (pnl.gameObject.name == "LoggedInUsers")
+                {
+                    GetComponent<RectTransform>().SetParent(pnl.transform);
+                }
+            }
+
+            //position it according to it's index:
             GetComponent<RectTransform>().anchoredPosition = new Vector2(index * 150, 0);
+            GetComponent<RectTransform>().localScale = Vector3.one;
         }
 
         public override void IndexChanged(int oldIndex, int newIndex)
         {
             GetComponent<RectTransform>().anchoredPosition = new Vector2(index * 150, 0);
+            GetComponent<RectTransform>().localScale = Vector3.one;
         }
 
         private void SetActiveComponentsInDisplay()

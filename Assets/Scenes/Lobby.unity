@@ -1436,7 +1436,7 @@ MonoBehaviour:
   onlineScene: Assets/Scenes/WaitingRoom.unity
   transport: {fileID: 1184959450}
   networkAddress: localhost
-  maxConnections: 4
+  maxConnections: 8
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 1674004198306054741, guid: 6e3b877d52b273646bf2d38c7c63d575,
     type: 3}
@@ -3555,6 +3555,7 @@ MonoBehaviour:
   listOfPorts: []
   txtSession: {fileID: 1714112668}
   txtDisplayName: {fileID: 1560782518}
+  isHostOfGame: 0
 --- !u!224 &757079394807109214
 RectTransform:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ namespace SpaceBattle.Server
         [Tooltip("How long to wait before returning to room scene. can be used to show a message meanwhile.")]
         public float timeToWaitWhenEndOfGame = 2.5f;
 
-        private bool isGameStarted;
         private bool isGameWon;
         private int minNumOfPlayers;
 
@@ -17,7 +16,6 @@ namespace SpaceBattle.Server
         {
             base.OnStartServer();
             isGameWon = false;
-            isGameStarted = false;
         }
 
 

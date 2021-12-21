@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DevAccountEmail: alexshko@gmail.com
   DevAccountToken: m5i8cmpcr9woig86yndgiza3p6n17etspwpx3ztqxeqpeoywhakpk1ahectn13jnqfaha8jfi1xgokbf7yj1uxn9gkj1gxqsrmpg49b1jkunce3tnhgz7m1cpbmc64fj875htqwy6g9n5nd7snhwff6seycysz4no9rb1w8qqjmpp8xub3d3gcohorn5w3oco7fddq6h
-  SelectedStudio: Shkolnikorp
+  SelectedStudio: AlexCo
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 

@@ -32,7 +32,7 @@ namespace SpaceBattle.Server.playfab
                     PlayFabMultiplayerAgentAPI.OnShutDownCallback += serverShutDown;
 
                     //check every 2 minutes, if no players then kill host:
-                    StartCoroutine(checkIFHavePlayers());
+                    //StartCoroutine(checkIFHavePlayers());
                 }
                 else
                 {
