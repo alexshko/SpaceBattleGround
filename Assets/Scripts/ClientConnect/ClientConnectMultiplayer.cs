@@ -32,7 +32,6 @@ namespace SpaceBattle.Client.playfab
             }
         }
 
-        
         public void CreateMultiplyaerGame()
         {
             isHostOfGame = true;
@@ -122,11 +121,6 @@ namespace SpaceBattle.Client.playfab
 
         private void Start()
         {
-            //GetPlayerProfileRequest request = new GetPlayerProfileRequest() {
-            //    PlayFabId = GameUser.singelton.playFabId,
-            //    ProfileConstraints = new PlayerProfileViewConstraints() { ShowDisplayName = true }
-            //};
-            //PlayFabClientAPI.GetPlayerProfile(request, res => { Debug.Log("User: " + res.ToJson());}, err => { Debug.Log("Coudn't retrieve user info"); });
             if (txtDisplayName)
             {
                 txtDisplayName.text = GameUser.singelton.displayName;
