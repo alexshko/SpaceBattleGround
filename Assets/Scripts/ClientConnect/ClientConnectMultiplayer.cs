@@ -129,7 +129,7 @@ namespace SpaceBattle.Client.playfab
             //PlayFabClientAPI.GetPlayerProfile(request, res => { Debug.Log("User: " + res.ToJson());}, err => { Debug.Log("Coudn't retrieve user info"); });
             if (txtDisplayName)
             {
-                txtDisplayName.text = GameUser.singelton.userID;
+                txtDisplayName.text = GameUser.singelton.displayName;
             }
         }
 

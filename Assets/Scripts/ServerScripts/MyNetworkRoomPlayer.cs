@@ -42,7 +42,7 @@ namespace SpaceBattle.Client
             SetPositionOfRoomPlayer();
             if (isLocalPlayer)
             {
-                DisplayName = GameUser.singelton.userID;
+                DisplayName = GameUser.singelton.displayName;
             }
         }
 
