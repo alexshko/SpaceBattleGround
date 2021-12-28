@@ -5,16 +5,39 @@ namespace SpaceBattle.Life
 {
     public class HealthDisplay : MonoBehaviour
     {
-        [Tooltip("Reference to the life engine of the spaceship to display in the UI")]
-        public LifeEngine lifeEngineLocalPlayer;
+        public static HealthDisplay singleton;
 
-        public void Update()
+        private void Awake()
         {
-            if(lifeEngineLocalPlayer != null)
+            singleton = this;
+        }
+
+        [Tooltip("Reference to the life engine of the spaceship to display in the UI")]
+        private LifeEngine lifeEngineLocalPlayer;
+        public LifeEngine LifeEngineLocalPlayer
+        {
+            get => lifeEngineLocalPlayer;
+            set
             {
-                GetComponent<Text>().text = lifeEngineLocalPlayer.LifeRemain.ToString();
+                //if there is already LifeEngine and we change it, then unregister the function from the action:
+                if (lifeEngineLocalPlayer?.actionClientOnChangeLife != null)
+                {
+                    lifeEngineLocalPlayer.actionClientOnChangeLife -= UpdateHealthDisplay;
+                }
+                lifeEngineLocalPlayer = value;
+                //register the function for the new LifeBar:
+                lifeEngineLocalPlayer.actionClientOnChangeLife += UpdateHealthDisplay;
+                //init with current value:
+                UpdateHealthDisplay(0, lifeEngineLocalPlayer.LifeRemain);
             }
         }
+
+        //every time the life is changed in the local LifeEngine, update the health display:
+        private void UpdateHealthDisplay(float oldLife, float newLife)
+        {
+            GetComponent<Text>().text = newLife.ToString();
+        }
+
     }
 }
 

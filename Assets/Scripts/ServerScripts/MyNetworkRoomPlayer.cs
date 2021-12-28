@@ -8,7 +8,7 @@ namespace SpaceBattle.Client
 {
     public class MyNetworkRoomPlayer : NetworkRoomPlayer
     {
-        [SyncVar(hook ="UpdateDisplayNameInUI")]
+        [SyncVar(hook =nameof(HookUpdateDisplayNameInUI))]
         [SerializeField]
         string displayName;
         public string DisplayName
@@ -24,7 +24,13 @@ namespace SpaceBattle.Client
         {
             displayName = newDispName;
         }
-        void UpdateDisplayNameInUI(string oldValue, string newValue)
+
+        /// <summary>
+        /// hook function which is called after each change of the display name of the player:
+        /// </summary>
+        /// <param name="oldValue"></param>
+        /// <param name="newValue"></param>
+        private void HookUpdateDisplayNameInUI(string oldValue, string newValue)
         {
             foreach (var item in GetComponentsInChildren<TMP_Text>())
             {
@@ -64,13 +70,13 @@ namespace SpaceBattle.Client
             }
 
             //position it according to it's index:
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(index * 150, 0);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(index * 700, 0);
             GetComponent<RectTransform>().localScale = Vector3.one;
         }
 
         public override void IndexChanged(int oldIndex, int newIndex)
         {
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(index * 150, 0);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(index * 700, 0);
             GetComponent<RectTransform>().localScale = Vector3.one;
         }
 

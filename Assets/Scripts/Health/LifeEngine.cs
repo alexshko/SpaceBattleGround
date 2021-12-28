@@ -16,10 +16,12 @@ namespace SpaceBattle.Life
         public Slider LifeBarRef;
 
         //the action to preform when life gets to zero:
-        public Action ActionOnDie { get; set; }
+        public Action ActionOnDie=null;
+        //action to perform on client when life changes:
+        public Action<float,float> actionClientOnChangeLife=null;
 
 
-        [SyncVar]
+        [SyncVar(hook =nameof(HookUpdatedLife))]
         [SerializeField] private float currentLife;
         public float LifeRemain
         {
@@ -35,7 +37,9 @@ namespace SpaceBattle.Life
         private void Start()
         {
             //when dies should destroy itself.
-            ActionOnDie += () => { ServerInflictDeath(); };
+            ActionOnDie += ServerInflictDeath;
+            //when hit, it should decrease the lifebar in all clients:
+            actionClientOnChangeLife += UpdateLifeBar;
             currentLife = MaxLife;
         }
 
@@ -51,7 +55,7 @@ namespace SpaceBattle.Life
             }
 
             //update the display of health:
-            GameObject.FindObjectOfType<HealthDisplay>().lifeEngineLocalPlayer = this;
+            HealthDisplay.singleton.LifeEngineLocalPlayer = this;
         }
 
         [Server]
@@ -64,11 +68,6 @@ namespace SpaceBattle.Life
                 //has to be killed:
                     ServerTakeDamage(MaxLife + 1);
                 }
-
-                //if (other.gameObject.tag == "HealingCell")
-                //{
-                //    currentLife = other.GetComponent<PickUpObject>().RestoreHealth;
-                //}
         }
 
         [Server]
@@ -86,8 +85,8 @@ namespace SpaceBattle.Life
                     return;
                 }
             }
-            //update the life bar on all clients
-            RpcUpdateLifeBarIfExist(currentLife, newLife);
+            ////update the life bar on all clients
+            //UpdateLifeBarIfExist(currentLife, newLife);
             currentLife = newLife;
         }
 
@@ -98,13 +97,9 @@ namespace SpaceBattle.Life
             ServerTakeDamage(damage);
         }
 
-        [ClientRpc]
-        private void RpcUpdateLifeBarIfExist(float oldLife, float newLife)
+        private void HookUpdatedLife(float oldLife, float newLife)
         {
-            if (LifeBarRef)
-            {
-                LifeBarRef.value = Mathf.Clamp01(newLife / MaxLife);
-            }
+            actionClientOnChangeLife?.Invoke(oldLife, newLife);
         }
 
         [Server]
@@ -124,6 +119,14 @@ namespace SpaceBattle.Life
         public void TargetDisconnectWhenDie()
         {
             NetworkManager.singleton.StopClient();
+        }
+
+        private void UpdateLifeBar(float oldLife, float newLife)
+        {
+            if (LifeBarRef)
+            {
+                LifeBarRef.value = Mathf.Clamp01(newLife / MaxLife);
+            }
         }
 
     }

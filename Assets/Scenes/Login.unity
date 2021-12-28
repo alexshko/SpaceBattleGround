@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a494ebe056755646ab388f67a6ba617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRemote: 1
+  isRemote: 0
   isServerInstance: 0
   buildId: 0de9fbca-857d-45e8-8949-a4426fbdcc54
 --- !u!114 &1067147131 stripped
